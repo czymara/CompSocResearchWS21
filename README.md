@@ -10,8 +10,9 @@ Das Forschungspraktikum ist als Präsenzveranstaltung geplant, bei der sich einma
 
 
 ### Tutorials
-[Current tutorial](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/02_research_process/FoP_CompSocResearch_02_tutorial.html)
+Current tutorial: [Tutorial 3: Linear regression](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/03_linear_regression/FoP_CompSocResearch_03_tutorial.html)
 
 Solutions:
-- [01_intro_to_R](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/01_intro_to_R/FoP_CompSocResearch_01_tutorial.html)
+- [Tutorial 1: R basics](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/01_intro_to_R/FoP_CompSocResearch_01_tutorial.html)
+- [Tutorial 2: Descriptive statistics](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/02_research_process/FoP_CompSocResearch_02_tutorial.html)
 
