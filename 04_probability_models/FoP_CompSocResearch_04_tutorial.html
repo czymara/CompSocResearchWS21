@@ -203,7 +203,7 @@ pre code {
 <h2>4. Predicting probabilities</h2>
 <div id="a-prediction-for-women" class="section level3">
 <h3>a) Prediction for women</h3>
-<p>Use <code>predict()</code> of the <code>prediction</code> package to predict the probability to vote for different (hypothetical) persons. Predict the probability for a <em>woman</em> who is…</p>
+<p>Based on the coefficients of model 3.d), predict the probability to vote for different (hypothetical) persons. The formula for probabilities is <span class="math inline">\(pr(y=1 | x)=\frac{e^{\beta_{0} + \beta_{1}x_{1} + \cdots + \beta_{k}x_{k}}}{1+e^{\beta_{0} + \beta_{1}x_{1} + \cdots + \beta_{k}x_{k}}}\)</span>, with <span class="math inline">\(k\)</span> being the number of variables in the model (see slide 31 of the lecture). Alternatively, use the <code>predict()</code> function. Predict the probability for a <em>woman</em> who is…</p>
 <ul>
 <li>60 years old, has tertiary education and highest satisfaction with democracy</li>
 <li>20 years old, has lowest education and lowest satisfaction with democracy</li>
