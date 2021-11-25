@@ -10,10 +10,13 @@ Das Forschungspraktikum ist als Präsenzveranstaltung geplant, bei der sich einma
 
 
 ### Tutorials
-Current tutorial: [Tutorial 4: Logistic regression](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/04_probability_models/FoP_CompSocResearch_04_tutorial.html)
+Current tutorial: [Tutorial 5: Comparative social research](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/05_comparative_social_research/FoP_CompSocResearch_05_tutorial.html)
 
 Solutions:
 - [Tutorial 1: R basics](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/01_intro_to_R/FoP_CompSocResearch_01_tutorial.html)
 - [Tutorial 2: Descriptive statistics](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/02_research_process/FoP_CompSocResearch_02_tutorial.html)
 
 - [Tutorial 3: Linear regression](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/03_linear_regression/FoP_CompSocResearch_03_tutorial.html)
+
+- [Tutorial 4: Logistic regression](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/04_probability_models/FoP_CompSocResearch_04_tutorial.html)
+
