@@ -14,7 +14,7 @@ Das Forschungspraktikum ist als Präsenzveranstaltung geplant, bei der sich einma
 
 ### Sessions
 
-- Current tutorial: [Tutorial 5: Comparative social research](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/05_comparative_social_research/FoP_CompSocResearch_05_tutorial.html)
+- Current tutorial: [Tutorial 8: Hierarchical linear models](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/08_hierarchical_linear_models/FoP_CompSocResearch_08_tutorial.html)
 
 | # | Topic | Tutorial | Literature |
 | --- | --- | --- | --- |
