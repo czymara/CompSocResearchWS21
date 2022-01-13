@@ -180,7 +180,6 @@ pre code {
 <h2>2. Random intercept model</h2>
 <p>As a first step, we want to know whether welfare state attitudes correlate with political orientation. Estimate a hierarchical linear model that regresses <code>sbeqsoc</code> on <code>lrscale_cent</code> (with a random intercept for <code>cntry</code>):</p>
 <p><span class="math display">\[sbeqsoc_{ij}=\beta_0+\beta_1lrscale\_cent_{ij}+u_{0j}+e_{ij}\]</span></p>
-<p>Compare to the same model but with <code>lrscale</code> instead of <code>lrscale_cent</code>.</p>
 </div>
 <div id="random-slope-model" class="section level2">
 <h2>3. Random slope model</h2>
@@ -190,36 +189,23 @@ pre code {
 <p><span class="math display">\[sbeqsoc_{ij}=\beta_0+\beta_1lrscale\_cent_{ij}+u_{0j}+u_{1j}lrscale\_cent_{ij}+e_{ij}\]</span></p>
 <p>Interpret the coefficient of the fixed (<span class="math inline">\(\beta_1\)</span>) and of the random effect (<span class="math inline">\(\tau_{11}=var(u_{1j})\)</span>) of political orientation.</p>
 </div>
-<div id="b-covariance-structure" class="section level3">
-<h3>b) Covariance structure</h3>
-<p>Based on the results above, is <span class="math inline">\(\beta_1\)</span> positive or negative? Is <span class="math inline">\(\tau_{01}\)</span> (the covariance between the random intercept and the random slope, <span class="math inline">\(cov(u_{0j}, u_{1j})\)</span>) positive or negative? Which pattern of slopes does this imply? Try to plot the random slopes with the <code>plot_model()</code> function from the <code>sjPlot</code> package (<code>pred.type = &quot;re&quot;</code>).</p>
-</div>
-<div id="c-likelihood-ratio-test" class="section level3">
-<h3>c) Likelihood-Ratio test</h3>
+<div id="b-likelihood-ratio-test" class="section level3">
+<h3>b) Likelihood-Ratio test</h3>
 <p>Does the effect of political orientation vary across countries? Run a Likelihood-Ratio test (LR test) to compare the model with random slopes to the model without random slopes (with <span class="math inline">\(h_0:~\tau_{01}=\tau_{11}=0\)</span>).</p>
 </div>
-<div id="d-random-effects" class="section level3">
-<h3>d) Random effects</h3>
+<div id="c-random-effects" class="section level3">
+<h3>c) Random effects</h3>
 <p>Use <code>ranef()</code> to access the random intercepts and slopes for each country (add <code>condVar = TRUE</code> to take covariance matrix into account). Can you name a country where people were rather <em>negative</em> about the welfare state but where the expected effect of political orientation is <em>stronger</em> than average? What about a country where welfare views are rather <em>positive</em> but the expected effect of political orientation is <em>weaker</em>?</p>
+</div>
+<div id="d-covariance-structure" class="section level3">
+<h3>d) Covariance structure</h3>
+<p>Based on the results above, is <span class="math inline">\(\beta_1\)</span> positive or negative? Is <span class="math inline">\(\tau_{01}\)</span> (the covariance between the random intercept and the random slope, <span class="math inline">\(cov(u_{0j}, u_{1j})\)</span>) positive or negative? Which pattern of slopes does this imply?</p>
 </div>
 <div id="e-control-variables" class="section level3">
 <h3>e) Control variables</h3>
 <p>Add the following control variables on the individual-level: <code>hinctnta_cent</code>, <code>res_educ</code>, <code>laborstat</code>, and the country-level control <code>gdppc</code>:</p>
 <p><span class="math display">\[sbeqsoc_{ij}=\beta_0+\beta_1lrscale\_cent_{ij}+\beta_2hinctnta\_cent_{ij}+\beta_3res\_educ\_2_{ij}+\beta_4res\_educ\_3_{ij}+\beta_5res\_educ\_4_{ij}+\beta_6laborstat\_2_{ij}+\beta_7laborstat\_3_{ij}+\gamma_1gdppc_j+u_{0j}+u_{1j}lrscale\_cent_{ij}+e_{ij}\]</span></p>
 <p>Are the results regarding the association between welfare state attitudes and political orientation stable to the inclusion of the control variables?</p>
-</div>
-</div>
-<div id="random-slope-for-income" class="section level2">
-<h2>4. Random slope for income</h2>
-<div id="a-estimate-model" class="section level3">
-<h3>a) Estimate model</h3>
-<p>Add a random slope for the centered income variable, too. This model will allow both the political orientation and the income effect to vary by country:</p>
-<p><span class="math display">\[sbeqsoc_{ij}=\beta_0+\beta_1lrscale\_cent_{ij}+\beta_2hinctnta\_cent_{ij}+\beta_3res\_educ\_2_{ij}+\beta_4res\_educ\_3_{ij}+\beta_5res\_educ\_4_{ij}+\beta_6laborstat\_2_{ij}+\beta_7laborstat\_3_{ij}+\gamma_1gdppc_j+u_{0j}+u_{1j}lrscale\_cent_{ij}+u_{2j}hinctnta\_cent_{ij}+e_{ij}\]</span></p>
-<p>How many (more) random parameters will the model estimate?</p>
-</div>
-<div id="b-lr-test" class="section level3">
-<h3>b) LR test</h3>
-<p>Run a LR test to compare this model to the model of 3.a). What is the <span class="math inline">\(h_0\)</span> of this LR test? Does adding the random slope for income increase the model fit?</p>
 </div>
 </div>
 
