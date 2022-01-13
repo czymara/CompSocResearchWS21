@@ -5,16 +5,16 @@
 
 ### Kursbeschreibung
 
-Sozialwissenschaftliche Forschung beschäftigt sich häufig mit dem Einfluss sozialer Kontexte auf das Individuum. In der vergleichenden Forschung wird Kontext oft als Land verstanden. Zum Beispiel: Gefährdet ein nationalistischer Wahlkampf die Unterstützung für den Wohlfahrtstaat? Warum vertrauen Menschen in manchen Ländern eher der Polizei als in anderen? Führt Einkommensungleichheit zu Depression?
+Sozialwissenschaftliche Forschung beschÃ¤ftigt sich hÃ¤ufig mit dem Einfluss sozialer Kontexte auf das Individuum. In der vergleichenden Forschung wird Kontext oft als Land verstanden. Zum Beispiel: GefÃ¤hrdet ein nationalistischer Wahlkampf die UnterstÃ¼tzung fÃ¼r den Wohlfahrtstaat? Warum vertrauen Menschen in manchen LÃ¤ndern eher der Polizei als in anderen? FÃ¼hrt Einkommensungleichheit zu Depression?
 
-Der Kurs hat zum Ziel, das Handwerk zur eigenen Durchführung einer solchen ländervergleichenden Studie zu vermitteln. Hierfür werden die Daten des European Social Survey (ESS) mit Hilfe der Programmiersprache R analysiert. *Es handelt sich um einen fortgeschrittenen Methodenkurs - statistisches Grundwissen, Kenntnisse der Datenanalyse (z. B. mit R oder Stata) und generelles Interesse an quantitativer Forschung werden vorausgesetzt.* Am Ende sollen die Studierenden eine eigene empirisch-quantitative, ländervergleichende Studie anfertigen, in der sie das während des Semesters Gelernte auf ein Thema ihrer Wahl anwenden. Die Kurssprache ist Deutsch, Referate und Hausarbeiten können aber gerne auf Englisch gehalten bzw. eingereicht werden.
+Der Kurs hat zum Ziel, das Handwerk zur eigenen DurchfÃ¼hrung einer solchen lÃ¤ndervergleichenden Studie zu vermitteln. HierfÃ¼r werden die Daten des European Social Survey (ESS) mit Hilfe der Programmiersprache R analysiert. *Es handelt sich um einen fortgeschrittenen Methodenkurs - statistisches Grundwissen, Kenntnisse der Datenanalyse (z. B. mit R oder Stata) und generelles Interesse an quantitativer Forschung werden vorausgesetzt.* Am Ende sollen die Studierenden eine eigene empirisch-quantitative, lÃ¤ndervergleichende Studie anfertigen, in der sie das wÃ¤hrend des Semesters Gelernte auf ein Thema ihrer Wahl anwenden. Die Kurssprache ist Deutsch, Referate und Hausarbeiten kÃ¶nnen aber gerne auf Englisch gehalten bzw. eingereicht werden.
 
-Das Forschungspraktikum ist als Präsenzveranstaltung geplant, bei der sich einmal wöchentlich getroffen wird. Zu jeder Sitzung wird es eine (freiwillige) Übungsaufgabe geben, für deren Bearbeitung die Studierenden eine Woche Zeit haben. Die Lösungen werden in der darauf folgenden Woche gemeinsam besprochen. Außerdem sollen die Studierenden eine vorgegebene Beispielstudie vorstellen. Falls die Pandemieentwicklung dies verlangt, wird die Veranstaltung zur Onlineveranstaltung geändert.
+Das Forschungspraktikum ist als PrÃ¤senzveranstaltung geplant, bei der sich einmal wÃ¶chentlich getroffen wird. Zu jeder Sitzung wird es eine (freiwillige) Ãœbungsaufgabe geben, fÃ¼r deren Bearbeitung die Studierenden eine Woche Zeit haben. Die LÃ¶sungen werden in der darauf folgenden Woche gemeinsam besprochen. AuÃŸerdem sollen die Studierenden eine vorgegebene Beispielstudie vorstellen. Falls die Pandemieentwicklung dies verlangt, wird die Veranstaltung ins Onlineformat Ã¼berfÃ¼hrt.
 
 
 ### Sessions
 
-- Current tutorial: [Tutorial 8: Hierarchical linear models](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/08_hierarchical_linear_models/FoP_CompSocResearch_08_tutorial.html)
+- Current tutorial: [Tutorial 8: Random intercept models](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/08_hierarchical_linear_models/FoP_CompSocResearch_08_tutorial.html)
 
 | # | Topic | Tutorial | Literature |
 | --- | --- | --- | --- |
@@ -25,5 +25,5 @@ Das Forschungspraktikum ist als Präsenzveranstaltung geplant, bei der sich einma
 | 4 | Linear and non-linear probability models | [Solution](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/04_probability_models/FoP_CompSocResearch_04_tutorial.html) | Breen, Karlson & Holm (2018). [Interpreting and understanding logits, probits, and other nonlinear probability models.](https://www.annualreviews.org/doi/10.1146/annurev-soc-073117-041429) Annual Review of Sociology, 44, 39-54. |
 | 5 | Introduction to comparative social research | [Solution](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/05_comparative_social_research/FoP_CompSocResearch_05_tutorial.html) | Kohn (1987). [Cross-National Research as an Analytic Strategy.](https://www.jstor.org/stable/2095831?seq=1#metadata_info_tab_contents) American Sociological Review, 52 (6), 713-731. |
 | 6 & 7 | Studies | None | See syllabus |
-| 8 | Hierarchical linear models | tbc | Schmidt-Catran, Fairbrother & Andreß (2019). [Multilevel models for the analysis of comparative survey data: Common problems and some solutions.](https://link.springer.com/article/10.1007/s11577-019-00607-9) Kölner Zeitschrift für Soziologie und Sozialpsychologie, 71 (1), 99-128. |
+| 8 | Random intercept models | tbc | Schmidt-Catran, Fairbrother & Andre? (2019). [Multilevel models for the analysis of comparative survey data: Common problems and some solutions.](https://link.springer.com/article/10.1007/s11577-019-00607-9) K?lner Zeitschrift f?r Soziologie und Sozialpsychologie, 71 (1), 99-128. |
 
