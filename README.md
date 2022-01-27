@@ -14,7 +14,7 @@ Das Forschungspraktikum ist als Präsenzveranstaltung geplant, bei der sich einm
 
 ### Sessions
 
-- Current tutorial: [Tutorial 11: Logistic multi-level models](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/10_cross-level_interactions/FoP_CompSocResearch_10_tutorial.html)
+- Current tutorial: [Tutorial 11: Logistic multi-level models](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/11_logistic_multi-level_models/FoP_CompSocResearch_11_tutorial.html)
 
 | # | Topic | Tutorial | Literature |
 | --- | --- | --- | --- |
@@ -26,6 +26,6 @@ Das Forschungspraktikum ist als Präsenzveranstaltung geplant, bei der sich einm
 | 5 | Introduction to comparative social research | [Solution](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/05_comparative_social_research/FoP_CompSocResearch_05_tutorial.html) | Kohn (1987). [Cross-National Research as an Analytic Strategy.](https://www.jstor.org/stable/2095831?seq=1#metadata_info_tab_contents) American Sociological Review, 52 (6), 713-731. |
 | 6 & 7 | Studies | None | See syllabus |
 | 8 | Random intercept models | [Solution](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/08_random_intercept_models/FoP_CompSocResearch_08_tutorial.html) | Schmidt-Catran, Fairbrother & Andreß (2019). [Multilevel models for the analysis of comparative survey data: Common problems and some solutions.](https://link.springer.com/article/10.1007/s11577-019-00607-9) Kölner Zeitschrift für Soziologie und Sozialpsychologie, 71 (1), 99-128. |
-| 9 | Random slope models | [Solution](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/09_random_slope_models/FoP_CompSocResearch_09_tutorial.html) | Heisig, Schaeﬀer & Giesecke (2017). [The costs of simplicity: Why multi-level models may beneﬁt from accounting for cross-cluster diﬀerences in the eﬀects of controls.](https://journals.sagepub.com/doi/10.1177/0003122417717901). American Sociological Review, 82 (4), 796-827. |
-| 10 | Cross-level interactions | [Solution](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/10_cross-level_interactions/FoP_CompSocResearch_10_tutorial.html) | Schmidt-Catran & Fairbrother (2015). [The random eﬀects in multilevel models: Getting them wrong and getting them right.](https://academic.oup.com/esr/article/32/1/23/2404356) European Sociological Review, 32 (1), 23-38. |
+| 9 | Random slope models | [Solution](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/09_random_slope_models/FoP_CompSocResearch_09_tutorial.html) | Heisig, Schaeﬀer & Giesecke (2017). [The costs of simplicity: Why multi-level models may beneﬁt from accounting for cross-cluster diﬀerences in the eﬀects of controls.](https://journals.sagepub.com/doi/10.1177/0003122417717901) American Sociological Review, 82 (4), 796-827. |
+| 10 | Cross-level interactions | [Solution](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/10_cross-level_interactions/FoP_CompSocResearch_10_tutorial.html) | Heisig & Schaeﬀer (2019). [Why you should *always* include a random slope for the lower-level variable involved in a cross-level interaction.](https://academic.oup.com/esr/article/35/2/258/5306121) European Sociological Review, 35 (2), 258-279. |
 
