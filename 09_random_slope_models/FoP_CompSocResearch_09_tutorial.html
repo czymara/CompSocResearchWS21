@@ -172,7 +172,7 @@ a.sourceLine {
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>RIM <span class="ot">&lt;-</span> <span class="fu">lmer</span>(sbeqsoc <span class="sc">~</span> lrscale_cent <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> cntry), <span class="at">data =</span> ESS8)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(RIM)</span></code></pre></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(RIM, <span class="at">correlation =</span> F)</span></code></pre></div>
 <pre><code>## Linear mixed model fit by REML [&#39;lmerMod&#39;]
 ## Formula: sbeqsoc ~ lrscale_cent + (1 | cntry)
 ##    Data: ESS8
@@ -192,11 +192,7 @@ a.sourceLine {
 ## Fixed effects:
 ##               Estimate Std. Error t value
 ## (Intercept)   3.305078   0.062713  52.702
-## lrscale_cent -0.018753   0.002691  -6.969
-## 
-## Correlation of Fixed Effects:
-##             (Intr)
-## lrscale_cnt -0.001</code></pre>
+## lrscale_cent -0.018753   0.002691  -6.969</code></pre>
 </div>
 <div id="random-slope-model" class="section level2">
 <h2>3. Random slope model</h2>
@@ -207,7 +203,7 @@ a.sourceLine {
 <p>Interpret the coefficient of the fixed (<span class="math inline">\(\beta_1\)</span>) and of the random effect (<span class="math inline">\(\tau_{11}=var(u_{1j})\)</span>) of political orientation.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>RSlope <span class="ot">&lt;-</span> <span class="fu">lmer</span>(sbeqsoc <span class="sc">~</span> lrscale_cent <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> lrscale_cent <span class="sc">|</span> cntry), <span class="at">data =</span> ESS8) <span class="co"># unstructured covariance matrix</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(RSlope)</span></code></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(RSlope, <span class="at">correlation =</span> F)</span></code></pre></div>
 <pre><code>## Linear mixed model fit by REML [&#39;lmerMod&#39;]
 ## Formula: sbeqsoc ~ lrscale_cent + (1 + lrscale_cent | cntry)
 ##    Data: ESS8
@@ -229,10 +225,6 @@ a.sourceLine {
 ##               Estimate Std. Error t value
 ## (Intercept)   3.300514   0.064115  51.478
 ## lrscale_cent -0.017267   0.007909  -2.183
-## 
-## Correlation of Fixed Effects:
-##             (Intr)
-## lrscale_cnt -0.393
 ## optimizer (nloptwrap) convergence code: 0 (OK)
 ## Model failed to converge with max|grad| = 0.00453202 (tol = 0.002, component 1)</code></pre>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fixed effect: For an &quot;average&quot; country, one more point on the LR scale is associated with a 0.017 decrease in welfare state attitude --&gt; slope of average regression line</span></span>

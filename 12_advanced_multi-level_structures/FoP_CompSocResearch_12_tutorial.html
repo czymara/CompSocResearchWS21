@@ -13,104 +13,11 @@
 <meta name="author" content="Dr. Christian Czymara (Sociology with Focus on Quantitative Methods for Social Research, Goethe University Frankfurt)" />
 
 
-<title>Tutorial 8: Random intercept models</title>
+<title>Tutorial 12: Advanced multi-level structures</title>
 
 <script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
 
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css" data-origin="pandoc">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
-/* A workaround for https://github.com/jgm/pandoc/issues/4278 */
-a.sourceLine {
-  pointer-events: auto;
-}
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
 
 
 
@@ -129,7 +36,7 @@ a.sourceLine {
 
 <header>
 <div class="inner">
-<h1 class="title toc-ignore">Tutorial 8: Random intercept models</h1>
+<h1 class="title toc-ignore">Tutorial 12: Advanced multi-level structures</h1>
 <h2 class="subtitle">Forschungspraktikum I und II: Vergleichende Sozialforschung mit Mehrebenenmodellen in R</h2>
 <h3 class="author">Dr. Christian Czymara (Sociology with Focus on Quantitative Methods for Social Research, Goethe University Frankfurt)</h3>
 </div>
@@ -140,616 +47,71 @@ a.sourceLine {
 <div id="content-wrapper">
   <div class="inner clearfix">
     <section id="main-content">
-<p>In this exercise, we will use hierarchical linear models to examine support for a basic income scheme, using data from the eighth wave of the ESS (2016/17).</p>
-<div id="importing-data" class="section level2">
-<h2>1. Importing data</h2>
-<p>Import ESS8_edit.dta and assign it to object <code>ESS16</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/czymara.local/Nextcloud/teaching/FoP HLM/_R/08_hierarchical_linear_models&quot;</span>)</span></code></pre></div>
-<pre><code>## Error in setwd(&quot;C:/Users/czymara.local/Nextcloud/teaching/FoP HLM/_R/08_hierarchical_linear_models&quot;): kann Arbeitsverzeichnis nicht wechseln</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ESS16 <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;ESS8_edit.dta&quot;</span>)</span></code></pre></div>
+<p>In this tutorial, we will examine relationships on various levels, i.e. spatial units. While we have focused on clustering on the country level so far, we will now take a more fine-grained perspective. In particular, we will use the <a href="https://en.wikipedia.org/wiki/Nomenclature_of_Territorial_Units_for_Statistics#Member_states">Nomenclature des unités territoriales statistiques</a>, which are lower geographical regions. Let’s take Germany as an example: the German NUTS1 regions are the 16 states (<em>Bundesländer</em>, e. g.: Hesse), NUTS2 are 39 government regions (<em>Regierungbezirke</em>, e. g.: Darmstadt), NUTS3 are 429 districts (<em>Landkreise</em> and <em>kreisfreie Städte</em>, e. g.: Frankfurt am Main). We will look at the sixth wave of the ESS to analyze the relationship between economic wealth on these different levels and the variable <code>plinsoc</code>, which measures respondents perceived place in society (0: bottom, 10: top).</p>
+<div id="data-preparation" class="section level2">
+<h2>1. Data preparation</h2>
+<p>Import ESS6MDWe02.4_F1.dta and assign it to object <code>ESS6_NUTS123</code>.</p>
 </div>
-<div id="random-intercept" class="section level2">
-<h2>2. Random intercept</h2>
-<div id="a-null-model-and-icc" class="section level3">
-<h3>a) Null model and ICC</h3>
-<p>Support for a basic income scheme is measured by the variable <code>basinc</code> (assumed continuous). First, we want to know how much public opinion on a basic income scheme differs across countries. The null model includes a random intercept at the country-level but no explanatory variables:</p>
-<p><span class="math display">\[basinc_{ij}=\beta_{0}+u_{0j}+e_{ij}\]</span></p>
-<p>Run this model using the <code>lmer()</code> function of the <code>lme4</code> package. Then calculate the share of variance between countries (<span class="math inline">\(\sigma_u^2\)</span>) from the total variance of <code>basinc</code>. What does the value tell us?</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install and load lme4</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(lme4)){</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;lme4&quot;</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(lme4)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>m_0 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(basinc <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> cntry),</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> ESS16)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m_0, <span class="at">correlation =</span> F)</span></code></pre></div>
-<pre><code>## Linear mixed model fit by REML [&#39;lmerMod&#39;]
-## Formula: basinc ~ 1 + (1 | cntry)
-##    Data: ESS16
-## 
-## REML criterion at convergence: 61388.4
-## 
-## Scaled residuals: 
-##      Min       1Q   Median       3Q      Max 
-## -2.53385 -0.62972 -0.00497  0.66476  2.42606 
-## 
-## Random effects:
-##  Groups   Name        Variance Std.Dev.
-##  cntry    (Intercept) 0.04178  0.2044  
-##  Residual             0.62547  0.7909  
-## Number of obs: 25880, groups:  cntry, 19
-## 
-## Fixed effects:
-##             Estimate Std. Error t value
-## (Intercept)  2.50252    0.04717   53.05</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ICC</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fl">0.04178</span><span class="sc">/</span>(<span class="fl">0.04178+0.62547</span>)</span></code></pre></div>
-<pre><code>## [1] 0.06261521</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># without copy pasting</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">VarCorr</span>(m_0)<span class="sc">$</span>cntry[<span class="dv">1</span>] <span class="co"># cntry random effect (between country variance)</span></span></code></pre></div>
-<pre><code>## [1] 0.04178462</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sigma</span>(m_0)<span class="sc">^</span><span class="dv">2</span> <span class="co"># variance of residuals (within country variance)</span></span></code></pre></div>
-<pre><code>## [1] 0.6254668</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">VarCorr</span>(m_0)<span class="sc">$</span>cntry[<span class="dv">1</span>]<span class="sc">/</span>(<span class="fu">VarCorr</span>(m_0)<span class="sc">$</span>cntry[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">sigma</span>(m_0)<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## [1] 0.062622</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or using the ICC function</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install and load performance</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(performance)){</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;performance&quot;</span>)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(performance)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">icc</span>(m_0)</span></code></pre></div>
-<pre><code>## # Intraclass Correlation Coefficient
-## 
-##      Adjusted ICC: 0.063
-##   Conditional ICC: 0.063</code></pre>
+<div id="understanding-nuts-regions-descriptive-overview" class="section level2">
+<h2>2. Understanding NUTS regions: Descriptive overview</h2>
+<p>To get a grasp of what these NUTS regions are, we will start with some exploratory data analyses.</p>
+<div id="a-examples-of-nuts-regions" class="section level3">
+<h3>a) Examples of NUTS regions</h3>
+<p>We already know the variable that captures countries: <code>cntry</code>. The respective variables for the NUTS regions are called, surprise, <code>NUTS1</code>, <code>NUTS2</code>, and <code>NUTS3</code>. What are exemplary values for each of these variables?</p>
 </div>
-<div id="b-random-effects" class="section level3">
-<h3>b) Random effects</h3>
-<p>Random intercepts measure the spread of Y around the grand intercept. To understand the logic of random effects, compare their estimates and the country means. Use the <code>ranef()</code> function to access the random effects for each country (that is, their conditional modes to be precise). Add these values to the grand intercept of the null model. Then compare to the mean of <code>basinc</code> for each country.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>randomEffects <span class="ot">&lt;-</span> m_0<span class="sc">@</span>beta <span class="sc">+</span> <span class="fu">ranef</span>(m_0)<span class="sc">$</span>cntry</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>countryMeans <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(basinc <span class="sc">~</span> cntry, ESS16, mean)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(randomEffects, <span class="dv">1</span>) <span class="sc">==</span> <span class="fu">round</span>(countryMeans<span class="sc">$</span>basinc, <span class="dv">1</span>) <span class="co"># taking into account rounding errors</span></span></code></pre></div>
-<pre><code>##    (Intercept)
-## AT        TRUE
-## BE        TRUE
-## CZ        TRUE
-## DE        TRUE
-## EE        TRUE
-## ES        TRUE
-## FI        TRUE
-## FR        TRUE
-## GB        TRUE
-## HU        TRUE
-## IE        TRUE
-## IT        TRUE
-## LT        TRUE
-## NL        TRUE
-## NO        TRUE
-## PL        TRUE
-## PT        TRUE
-## SE        TRUE
-## SI        TRUE</code></pre>
+<div id="b-gdp-values-of-different-levels" class="section level3">
+<h3>b) GDP values of different levels</h3>
+<p>We can measure economic prosperity (using GDP per capita) on each of these levels. This means we have one GDP variable per level in our dataset:</p>
+<ul>
+<li>Country: <code>c_gdp_eurhab_2011</code></li>
+<li>NUTS1: <code>n1_gdp_eurhab_2011</code></li>
+<li>NUTS2: <code>n2_gdp_eurhab_2011</code></li>
+<li>NUTS3: <code>n3_gdp_eurhab_2011</code></li>
+</ul>
+<p>Unfortunately, it will turn out that we do not have the data for all regions, i.e. that there are many NA’s for some of these variables. How many observations are there for each of these four variables? How large are the percentages of missing values?</p>
+<p>Show some descriptive statistics for each variable (mean values etc.).</p>
+</div>
+<div id="c-example-uppsala-län-sweden" class="section level3">
+<h3>c) Example: Uppsala län (Sweden)</h3>
+<p>Let’s have a look at an example on the NUTS3 level. The NUTS3 level in Sweden consists of <a href="https://en.wikipedia.org/wiki/Counties_of_Sweden">counties (called <em>läns</em>)</a>. An example of a län is the <em>Uppsala län</em>, which is <a href="http://www.europeansocialsurvey.org/essdoc/doc.html?ddi=2.2.3.5&amp;year=2012&amp;land=752">value <code>SE121</code> of <code>NUTS3</code></a>. How many respondents are in the sample for Uppsala län?</p>
+<p>How large was the GDP of Uppsala län in 2011? Is it above or below Sweden’s overall GDP value?</p>
+</div>
+<div id="d-gdp-and-perceived-place-in-society" class="section level3">
+<h3>d) GDP and perceived place in society</h3>
+<p>Plot the bivariate associations between <code>plinsoc</code> and the four GDP variables (one plot per region). Note that the small size of the regional samples (especially NUTS3) does not ensure regional representativity.</p>
 </div>
 </div>
-<div id="economic-wealth-and-basic-income-scheme-support" class="section level2">
-<h2>3. Economic wealth and basic income scheme support</h2>
-<div id="a-descriptive-country-comparison" class="section level3">
-<h3>a) Descriptive country comparison</h3>
-<p>Plot the relationship between average basic income scheme support and wealth measured by the <a href="https://data.oecd.org/gdp/gross-domestic-product-gdp.htm#:~:text=Gross%20domestic%20product%20(GDP)%20is,and%20services%20(less%20imports).">Gross Domestic Product (GDP) per head</a> (<code>gdppc</code>).</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>ESS16 <span class="sc">%&gt;%</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdppc,</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> basinc,</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> cntry)) <span class="sc">+</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean,</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">&quot;text&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Average support for basic income scheme&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;GDP per head&quot;</span>)</span></code></pre></div>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div id="random-intercepts-models" class="section level2">
+<h2>3. Random intercept(s) models</h2>
+<p>Now we are ready to run some multi-level models. Compared to the last sessions, these models will have random intercepts on several levels: individuals (level 1) are nested in NUTS2 regions (level 2), NUTS2 regions are nested in NUTS1 regions (level 3), and NUTS1 regions are nested in countries (level 4). We skip the NUTS3 level because the five level model will not converge and due to the representativity issues raised above.</p>
+<div id="a-null-model" class="section level3">
+<h3>a) Null model</h3>
+<p>To understand the correct random effects structure, we start with the null model. Use <code>lmer()</code> to estimate a null model that has the following random effects structure, where <span class="math inline">\(plinsoc_{ijkl}\)</span> is the perceived place in society of individual <span class="math inline">\(i\)</span> living in NUTS2 region <span class="math inline">\(j\)</span> within NUTS1 region <span class="math inline">\(k\)</span> of country <span class="math inline">\(l\)</span>. <span class="math inline">\(u_{0l}\)</span> is the random intercept on the country-level (between countries), <span class="math inline">\(u_{0kl}\)</span> the random intercept on the NUTS1 level (within countries), , <span class="math inline">\(u_{0jkl}\)</span> the random intercept on the NUTS2 level (within NUTS1), and <span class="math inline">\(e_{ijkl}\)</span> is the individual level error term (within NUTS2):</p>
+<p><span class="math display">\[plinsoc_{ijkl}=\beta_{0}+u_{0l}+u_{0kl}+u_{0jkl}+e_{ijkl}\]</span></p>
+<p>Then calculate the ICC to obtain the share of variance of <code>plinsoc</code> on each level (either manually or use the <code>performance</code> package).</p>
 </div>
-<div id="b-country-level-variables" class="section level3">
-<h3>b) Country-level variables</h3>
-<p>Does the association of GDP per head and individual basic income scheme support hold when differences in national income inequality are taken into account? Add the two country-level variables GPD per head and Gini index (this <a href="https://en.wikipedia.org/wiki/Gini_coefficient">index measures inequality</a> with 0 meaning complete income equality and 100 percent meaning complete income inequality).). Estimate the following model:</p>
-<p><span class="math display">\[basinc_{ij}=\beta_{0}+\gamma_{1}gdppc_{j}+\gamma_{2}c\_gini\_2016_{j}+u_{0j}+e_{ij}\]</span></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>m_country <span class="ot">&lt;-</span> <span class="fu">lmer</span>(basinc <span class="sc">~</span> gdppc <span class="sc">+</span> c_gini_2016 <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> cntry), <span class="at">data =</span> ESS16)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m_country, <span class="at">correlation =</span> F)</span></code></pre></div>
-<pre><code>## Linear mixed model fit by REML [&#39;lmerMod&#39;]
-## Formula: basinc ~ gdppc + c_gini_2016 + (1 | cntry)
-##    Data: ESS16
-## 
-## REML criterion at convergence: 61398.3
-## 
-## Scaled residuals: 
-##      Min       1Q   Median       3Q      Max 
-## -2.53523 -0.62998 -0.00635  0.66333  2.42595 
-## 
-## Random effects:
-##  Groups   Name        Variance Std.Dev.
-##  cntry    (Intercept) 0.03412  0.1847  
-##  Residual             0.62547  0.7909  
-## Number of obs: 25880, groups:  cntry, 19
-## 
-## Fixed effects:
-##              Estimate Std. Error t value
-## (Intercept)  2.573070   0.471173   5.461
-## gdppc       -0.010837   0.005575  -1.944
-## c_gini_2016  0.008893   0.012962   0.686</code></pre>
+<div id="b-add-gdp-variables" class="section level3">
+<h3>b) Add GDP variables</h3>
+<p>In a next step, we add the three GDP variables (on the country, NUTS1, and NUTS2 levels). First, run three models, each containing only one of these variables. Then run a a model that includes all three variables simultaneously. Compare the results. Note that the sample of analysis differs quite substantively between some of these models (compare N), so comparisons should be seen with caution.</p>
 </div>
-<div id="c-explained-between-country-variance" class="section level3">
-<h3>c) Explained between country variance</h3>
-<p>How much between country variance can be explained by the two country-level variables (compared to the null model)?</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate manually</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span>(<span class="fl">0.03412</span><span class="sc">/</span><span class="fl">0.04178</span>)</span></code></pre></div>
-<pre><code>## [1] 0.1833413</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use stored information</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span>(<span class="fu">VarCorr</span>(m_country)<span class="sc">$</span>cntry[<span class="dv">1</span>]<span class="sc">/</span><span class="fu">VarCorr</span>(m_0)<span class="sc">$</span>cntry[<span class="dv">1</span>])</span></code></pre></div>
-<pre><code>## [1] 0.183347</code></pre>
+<div id="c-add-individual-level-controls" class="section level3">
+<h3>c) Add individual-level controls</h3>
+<p>Use the model that includes all three variables and add the individual-level variables income satisfaction (<code>hincfel</code>, categorical), education (<code>eduyrs</code>, measured in years), and gender (<code>gndr</code>).</p>
 </div>
 </div>
-<div id="composition-effects" class="section level2">
-<h2>3. Composition effects</h2>
-<div id="a-individual-level-variables" class="section level3">
-<h3>a) Individual-level variables</h3>
-<p>Add the socio-economic variables income, education, and labor market status as controls (the *_2 etc. variables are the respective categories):</p>
-<p><span class="math display">\[basinc_{ij}=\beta_{0}+\gamma_{1}gdppc_{j}+\gamma_{2}c\_gini\_2016_{j}+\beta_{1}hinctnt_{ij}+\beta_{2}res\_educ\_2_{ij}+\beta_{3}res\_educ\_3_{ij}+\beta_{4}res\_educ\_4_{ij}+\beta_{5}laborstat\_2_{ij}+\beta_{6}laborstat\_3_{ij}+u_{0j}+e_{ij}\]</span></p>
-<p>Is the relationship between basic income scheme support and GDP/head driven by compositional differences between countries?</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>m_ind <span class="ot">&lt;-</span> <span class="fu">lmer</span>(basinc <span class="sc">~</span> gdppc <span class="sc">+</span> c_gini_2016 <span class="sc">+</span> hinctnta <span class="sc">+</span> <span class="fu">factor</span>(res_educ) <span class="sc">+</span> <span class="fu">factor</span>(laborstat) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> cntry), <span class="at">data =</span> ESS16)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m_ind, <span class="at">correlation =</span> F)</span></code></pre></div>
-<pre><code>## Linear mixed model fit by REML [&#39;lmerMod&#39;]
-## Formula: basinc ~ gdppc + c_gini_2016 + hinctnta + factor(res_educ) +  
-##     factor(laborstat) + (1 | cntry)
-##    Data: ESS16
-## 
-## REML criterion at convergence: 61263.8
-## 
-## Scaled residuals: 
-##      Min       1Q   Median       3Q      Max 
-## -2.79392 -0.64094  0.07418  0.68485  2.61287 
-## 
-## Random effects:
-##  Groups   Name        Variance Std.Dev.
-##  cntry    (Intercept) 0.03436  0.1854  
-##  Residual             0.62129  0.7882  
-## Number of obs: 25880, groups:  cntry, 19
-## 
-## Fixed effects:
-##                     Estimate Std. Error t value
-## (Intercept)         2.752661   0.473299   5.816
-## gdppc              -0.011062   0.005595  -1.977
-## c_gini_2016         0.008026   0.013008   0.617
-## hinctnta           -0.020603   0.002047 -10.066
-## factor(res_educ)2  -0.055508   0.016459  -3.372
-## factor(res_educ)3  -0.038719   0.013292  -2.913
-## factor(res_educ)4  -0.027414   0.015572  -1.761
-## factor(laborstat)2  0.099685   0.017707   5.630
-## factor(laborstat)3 -0.048607   0.011522  -4.218</code></pre>
+<div id="random-slope-of-education" class="section level2">
+<h2>4. Random slope of education</h2>
+<p>Finally, let’s test whether the relationship between years of education and perceived place in society differs across contexts. As we now have four levels, we could let the individual-level education effect vary on each of the three higher levels.</p>
+<div id="a-between-countries" class="section level3">
+<h3>a) Between countries</h3>
+<p>Model a random slope of <code>eduyrs</code> between <em>countries</em> (other variables not shown in equation for simplicity):</p>
+<p><span class="math display">\[plinsoc_{ijkl}=\beta_0+\beta_1eduyrs_{ijkl}+u_{0l}+\boldsymbol{u_{1l}}*eduyrs_{ijkl}+u_{0kl}+u_{0jkl}+e_{ijkl}\]</span></p>
 </div>
-<div id="b-results-table" class="section level3">
-<h3>b) Results table</h3>
-<p>Create a table that shows the results of the null model, the model with country-level variables, and the last model. For better comparison, show the standardized coefficients.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(m_0, m_country, m_ind,</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">&quot;Support for basic income scheme&quot;</span>,</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Null model&quot;</span>, <span class="st">&quot;Country variables&quot;</span>, <span class="st">&quot;Individual Variables&quot;</span>),</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">show.std =</span> T,</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">show.est =</span> F)</span></code></pre></div>
-<table style="border-collapse:collapse; border:none;">
-<caption style="font-weight: bold; text-align:left;">
-Support for basic income scheme
-</caption>
-<tr>
-<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
- 
-</th>
-<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
-Null model
-</th>
-<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
-Country variables
-</th>
-<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
-Individual Variables
-</th>
-</tr>
-<tr>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
-Predictors
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
-std. Beta
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
-standardized CI
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
-p
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
-std. Beta
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
-standardized CI
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col7">
-p
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col8">
-std. Beta
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col9">
-standardized CI
-</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  0">
-p
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-(Intercept)
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-0.02
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.09 – 0.14
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-0.01
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.10 – 0.11
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-<strong>&lt;0.001</strong>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
-0.05
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
--0.06 – 0.16
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-<strong>&lt;0.001</strong>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-GDP per head(PPP,1000$)
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.11
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.22 – 0.00
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-0.052
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
--0.11
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
--0.22 – -0.00
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-<strong>0.048</strong>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-[COUNTRY]Gini coefficient<br>of equivalised disposable<br>income 2016
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-0.04
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
--0.07 – 0.14
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-0.493
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
-0.03
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
--0.07 – 0.14
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-0.537
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-Household’s total net<br>income,all sources
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
--0.07
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
--0.08 – -0.06
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-<strong>&lt;0.001</strong>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-factor(res_educ)2
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
--0.07
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
--0.11 – -0.03
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-<strong>0.001</strong>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-factor(res_educ)3
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
--0.05
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
--0.08 – -0.02
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-<strong>0.004</strong>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-factor(res_educ)4
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
--0.03
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
--0.07 – 0.00
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-0.078
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-factor(laborstat)2
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
-0.12
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
-0.08 – 0.17
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-<strong>&lt;0.001</strong>
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
-factor(laborstat)3
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
--0.06
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
--0.09 – -0.03
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
-<strong>&lt;0.001</strong>
-</td>
-</tr>
-<tr>
-<td colspan="10" style="font-weight:bold; text-align:left; padding-top:.8em;">
-Random Effects
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
-σ<sup>2</sup>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.63
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.63
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.62
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
-τ<sub>00</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.04 <sub>cntry</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.03 <sub>cntry</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.03 <sub>cntry</sub>
-</td>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
-ICC
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.06
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.05
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.05
-</td>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
-N
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-19 <sub>cntry</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-19 <sub>cntry</sub>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-19 <sub>cntry</sub>
-</td>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
-Observations
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
-25880
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
-25880
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
-25880
-</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
-Marginal R<sup>2</sup> / Conditional R<sup>2</sup>
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.000 / 0.063
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.016 / 0.067
-</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
-0.022 / 0.074
-</td>
-</tr>
-</table>
-</div>
-<div id="c-model-fit" class="section level3">
-<h3>c) Model fit</h3>
-<p>Use the <code>lrtest()</code> function of the <code>lmtest</code> package to perform a Likelihood-Ratio-test (LR-test) and test whether adding the individual-level variables leads to an increased model fit compared to the model of including only country-level variables.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(lmtest)){</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;lmtest&quot;</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(lmtest)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lrtest</span>(m_country, m_ind) </span></code></pre></div>
-<pre><code>## Likelihood ratio test
-## 
-## Model 1: basinc ~ gdppc + c_gini_2016 + (1 | cntry)
-## Model 2: basinc ~ gdppc + c_gini_2016 + hinctnta + factor(res_educ) + 
-##     factor(laborstat) + (1 | cntry)
-##   #Df LogLik Df  Chisq Pr(&gt;Chisq)    
-## 1   5 -30699                         
-## 2  11 -30632  6 134.55  &lt; 2.2e-16 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div id="b-between-nuts1-regions" class="section level3">
+<h3>b) Between NUTS1 regions</h3>
+<p>Model a random slope of <code>eduyrs</code> between <em>NUTS1</em> regions (within countries):</p>
+<p><span class="math display">\[plinsoc_{ijkl}=\beta_0+\beta_1eduyrs_{ijkl}+u_{0l}+u_{0kl}+\boldsymbol{u_{1kl}}*eduyrs_{ijkl}+u_{0jkl}+e_{ijkl}\]</span></p>
+<p>Compare to the results of 4.a).</p>
 </div>
 </div>
     </section>
