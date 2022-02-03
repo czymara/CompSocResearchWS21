@@ -1,9 +1,6 @@
 
 # Forschungspraktikum I und II: Vergleichende Sozialforschung mit Mehrebenenmodellen in R
 
-
-[EVALUATION](http://r.sd.uni-frankfurt.de/2a01c310)
-
 ## Goethe University Frankfurt, winter semester 2021/22
 
 ### Kursbeschreibung
@@ -17,7 +14,7 @@ Das Forschungspraktikum ist als Präsenzveranstaltung geplant, bei der sich einm
 
 ### Sessions
 
-- Current tutorial: [Tutorial 12: Advanced multi-level structures](https://github.com/czymara/CompSocResearchWS21/blob/main/12_advanced_multi-level_structures/FoP_CompSocResearch_12_tutorial.html)
+- Current tutorial: [Tutorial 12: Advanced multi-level structures](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/12_advanced_multi-level_structures/FoP_CompSocResearch_12_tutorial.html)
 
 | # | Topic | Tutorial | Literature |
 | --- | --- | --- | --- |
