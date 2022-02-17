@@ -14,8 +14,6 @@ Das Forschungspraktikum ist als Präsenzveranstaltung geplant, bei der sich einm
 
 ### Sessions
 
-- Current tutorial: [Tutorial 13: Multi-level models with pooled cross-sections](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/13_pooled_cross-sections/FoP_CompSocResearch_13_tutorial.html)
-
 | # | Topic | Tutorial | Literature |
 | --- | --- | --- | --- |
 | 0 | Welcome | None | [Slack introduction](https://www.youtube.com/watch?v=9RJZMSsH7-g) |
@@ -29,6 +27,7 @@ Das Forschungspraktikum ist als Präsenzveranstaltung geplant, bei der sich einm
 | 9 | Random slope models | [Solution](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/09_random_slope_models/FoP_CompSocResearch_09_tutorial.html) | Heisig, Schaeﬀer & Giesecke (2017). [The costs of simplicity: Why multi-level models may beneﬁt from accounting for cross-cluster diﬀerences in the eﬀects of controls.](https://journals.sagepub.com/doi/10.1177/0003122417717901) American Sociological Review, 82 (4), 796-827. |
 | 10 | Cross-level interactions | [Solution](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/10_cross-level_interactions/FoP_CompSocResearch_10_tutorial.html) | Heisig & Schaeﬀer (2019). [Why you should *always* include a random slope for the lower-level variable involved in a cross-level interaction.](https://academic.oup.com/esr/article/35/2/258/5306121) European Sociological Review, 35 (2), 258-279. |
 | 11 | Logistic multi-level models | [Solution](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/11_logistic_multi-level_models/FoP_CompSocResearch_11_tutorial.html) | Hox (2002): Chapter 6 in: [Multilevel Analysis. Techniques and Applications](https://www.routledge.com/Multilevel-Analysis-Techniques-and-Applications-Third-Edition/Hox-Moerbeek-Schoot/p/book/9781138121362). Routledge. |
-| 12 | Advanced multi-level structures | [Solution](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/12_advanced_multi-level_structures/FoP_CompSocResearch_12_tutorial.html) | Fairbrother (2014). [Two multilevel modeling techniques for analyzing comparative longitudinal survey datasets](https://www.cambridge.org/core/journals/political-science-research-and-methods/article/two-multilevel-modeling-techniques-for-analyzing-comparative-longitudinal-survey-datasets/FE4BEA6E0ECB5A55AF48E4F22C49E5BB). Political Science Research and Methods, 2 (1), 119-140. |
-
+| 12 | Advanced multi-level structures | [Solution](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/12_advanced_multi-level_structures/FoP_CompSocResearch_12_tutorial.html) | Schmidt-Catran & Fairbrother (2015). [The random eﬀects in multilevel models: Getting them wrong and getting them right](https://academic.oup.com/esr/article/32/1/23/2404356). European Sociological Review, 32 (1), 23-38. |
+| 13 | Multi-level models with pooled cross-sections | [Solution](https://htmlpreview.github.io/?https://github.com/czymara/CompSocResearchWS21/blob/main/13_pooled_cross-sections/FoP_CompSocResearch_13_tutorial.html) | Fairbrother (2014). [Two multilevel modeling techniques for analyzing comparative longitudinal survey datasets](https://www.cambridge.org/core/journals/political-science-research-and-methods/article/two-multilevel-modeling-techniques-for-analyzing-comparative-longitudinal-survey-datasets/FE4BEA6E0ECB5A55AF48E4F22C49E5BB). Political Science Research and Methods, 2 (1), 119-140. |
+| 14 | Final | None | Academy of Sociology (2020). [Checklist for Quantitative Social Science Articles](https://osf.io/mw59u/). |
 
